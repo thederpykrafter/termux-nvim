@@ -1,7 +1,9 @@
 local keymap = vim.keymap.set
 
--- Oil
-keymap("n", "<leader>e", "<cmd>Oil --float<cr>", { desc = "Oil" })
+-- Oil float
+keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Oil" })
+-- open config with Oil
+keymap("n", "<leader>c", "<cmd> Oil ~/.config/nvim<cr>", { desc = "NeoVim Config"})
 
 -- lazy package manager
 keymap("n", "<leader>ll", "<cmd>Lazygit<cr>", { desc = "Lazy Package Manager" })
@@ -19,3 +21,18 @@ keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text"
 
 -- clear highlight search
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>")
+
+-- diagnostic
+keymap("n", "<leader>dn", "vim.diagnostic.goto_next", { desc = "Next Diagnostic Message"})
+keymap("n", "<leader>dp", "vim.diagnostic.goto_prev", { desc = "Previous Diagnostic Message"})
+keymap("n", "<leader>de", "vim.diagnostic.open_float", { desc = "Show Diagnostic Errors"})
+keymap("n", "<leader>dq", "vim.diagnostic.setloclist", { desc = "Next Diagnostic Quick Fix"})
+
+-- exit terminal mode
+keymap("n", "<esc><esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
+
+-- window navigation
+keymap("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to left window"})
+keymap("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to right window"})
+keymap("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to below window"})
+keymap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to above window"})
