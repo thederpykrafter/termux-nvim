@@ -7,7 +7,8 @@ return {
       -- Lazy Prefix
       ["<leader>l"] = { name = "Lazy", _ = "which_key_ignore"},
       ["<leader>g"] = { name = "Git", _ = "which_key_ignore"},
-      ["<leader>s"] = { name = "Search", _ = "which_key_ignore"}
+      ["<leader>s"] = { name = "Search", _ = "which_key_ignore"},
+      ["<leader>d"] = { name = "Diagnostic", _ = "which_key_ignore"}
     }
   end
 }
