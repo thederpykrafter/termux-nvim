@@ -14,7 +14,6 @@ return {
     event = 'VimEnter',
     config = function()
       require('dashboard').setup {
-        vim.keymap.set('n', '<leader>;', '<cmd>Dashboard<CR>', { desc = '[;]Dashboard' }),
         theme = 'doom',
         config = {
           vim.cmd 'hi DashboardHeader guifg=#7781da',
@@ -87,7 +86,8 @@ return {
             local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
             return {
               '',
-              '⚡ Neovim loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms',
+              '⌛' .. stats.loaded .. '/' .. stats.count .. ' plugins' .. '⌛',
+              'loaded in ' .. ms .. 'ms',
             }
           end, --your footer
         },

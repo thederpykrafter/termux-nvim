@@ -1,5 +1,8 @@
 local keymap = vim.keymap.set
 
+-- dashboard
+keymap('n', '<leader>;', '<cmd>Dashboard<CR>', { desc = 'Dashboard' })
+
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Oil" })
 -- open config with Oil
@@ -18,6 +21,24 @@ keymap("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Search File
 keymap("n", "<leader>sg", "<cmd>Telescope git_files<cr>", { desc = "Search Git Files"})
 keymap("n", "<leader>sr", "<cmd>Telescope old_files<cr>", { desc = "Search Recent Files"})
 keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text"})
+
+keymap('n', '<leader>/', function()
+  builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = 'Fuzzily search in current buffer' })
+
+keymap('n', '<leader>s/', function()
+  builtin.live_grep {
+    grep_open_files = true,
+    prompt_title = 'Live Grep in Open Files',
+  }
+end, { desc = 'Search in Open Files' })
+
+keymap('n', '<leader>sn', function()
+  builtin.find_files { cwd = vim.fn.stdpath 'config' }
+end, { desc = 'Search Neovim files' })
 
 -- clear highlight search
 keymap("n", "<esc>", "<cmd>nohlsearch<cr>")
