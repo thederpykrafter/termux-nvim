@@ -16,11 +16,14 @@ keymap("n", "<leader>lu", "<cmd>Lazygit update<cr>", { desc = "Lazy Update Packa
 keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 -- telescope
-keymap("n", "<leader>ss", "<cmd>Telescope<cr>", { desc = "Search Telescope Default"})
-keymap("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Search Files"})
-keymap("n", "<leader>sg", "<cmd>Telescope git_files<cr>", { desc = "Search Git Files"})
-keymap("n", "<leader>sr", "<cmd>Telescope old_files<cr>", { desc = "Search Recent Files"})
-keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text"})
+keymap("n", "<leader><leader>", "<cmd>Telescope buffers<cr>", { desc = "Search Open Buffers" })
+keymap("n", "<leader>ss", "<cmd>Telescope<cr>", { desc = "Search Telescope Default" })
+keymap("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Search Files" })
+keymap("n", "<leader>sg", "<cmd>Telescope git_files<cr>", { desc = "Search Git Files" })
+keymap("n", "<leader>sr", "<cmd>Telescope old_files<cr>", { desc = "Search Recent Files" })
+keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text" })
+
+local builtin = require('telescope.builtin')
 
 keymap('n', '<leader>/', function()
   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
