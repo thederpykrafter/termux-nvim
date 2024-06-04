@@ -3,7 +3,7 @@ return {
   cmd = {
     "LazyGit",
     "LazyGitConfig",
-    "LazyGutCurrentFile",
+    "LazyGitCurrentFile",
     "LazyGitFilter",
     "LazyGitFilterCurrentFile",
   },
