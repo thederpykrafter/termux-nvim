@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 
--- Oil float
+-- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Oil" })
 -- open config with Oil
 keymap("n", "<leader>c", "<cmd> Oil ~/.config/nvim<cr>", { desc = "NeoVim Config"})
@@ -20,7 +20,7 @@ keymap("n", "<leader>sr", "<cmd>Telescope old_files<cr>", { desc = "Search Recen
 keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text"})
 
 -- clear highlight search
-keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>")
+keymap("n", "<esc>", "<cmd>nohlsearch<cr>")
 
 -- diagnostic
 keymap("n", "<leader>dn", "vim.diagnostic.goto_next", { desc = "Next Diagnostic Message"})

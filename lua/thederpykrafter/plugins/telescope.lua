@@ -1,31 +1,28 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.6',
-  opts = {
-    defaults = {
-     mappings = {
-       i = {
-        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-         ["<C-h>"] = "which_key"
-        }
-      }
+  branch = '0.1.x',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      cond = function()
+        return vim.fn.executable 'make' == 1
+      end,
     },
-   pickers = {
-     -- Default configuration for builtin pickers goes here:
-      -- picker_name = {
-      --   picker_config_key = value,
-      --   ...
-      -- }
-      -- Now the picker_config_key will be applied every time you call this
-      -- builtin picker
-    },
-   extensions = {
-     -- Your extension configuration goes here:
-     -- extension_name = {
-     --   extension_config_key = value,
-     -- }
-      -- please take a look at the readme of the extension you want to configure
+    { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-tree/nvim-web-devicons'}
+  },
+  config = function()
+    require('telescope').setup {
+      extensions = {
+        ['ui-select'] = {
+          require('telescope.themes').get_dropdown(),
+        },
+      },
     }
-  }
+    pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'ui-select')
+  end
 }
 
