@@ -59,6 +59,12 @@ keymap("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to right window"})
 keymap("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to below window"})
 keymap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to above window"})
 
+-- resize wndows
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
 -- move line of text
 keymap("n", "<A-j>", "<cmd>m-2<cr>", { desc = "Move Line Down"})
 keymap("v", "<A-j>", "ddjp", { desc = "Move Line Down"})
