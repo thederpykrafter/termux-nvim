@@ -64,14 +64,15 @@ return {
               key = 'n',
               key_format = ' %s', -- remove default surrounding `[]`
               -- action = "lua require'telescope.builtin'.find_files({})",
-              action = 'Telescope find_files no_ignore=true cwd=~/Documents/Notes',
+              action = 'Oil ~/Documents/Notes',
             },
             {
               icon = '  ',
               desc = 'NeoVim Config',
               key = 'c',
               key_format = ' %s', -- remove default surrounding `[]`
-              action = 'Telescope find_files cwd=~/.config/nvim',
+              --action = 'Telescope find_files cwd=~/.config/nvim',
+              action = 'Oil ~/.config/termux-nvim'
             },
             {
               icon = '󰩈  ',
