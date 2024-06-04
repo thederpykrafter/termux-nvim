@@ -23,8 +23,6 @@ keymap("n", "<leader>st", "<cmd>Telescope live_grep<cr>", { desc = "Search Text"
 keymap("n", "<esc>", "<cmd>nohlsearch<cr>")
 
 -- diagnostic
-keymap("n", "<leader>dn", "vim.diagnostic.goto_next", { desc = "Next Diagnostic Message"})
-keymap("n", "<leader>dp", "vim.diagnostic.goto_prev", { desc = "Previous Diagnostic Message"})
 keymap("n", "<leader>de", "vim.diagnostic.open_float", { desc = "Show Diagnostic Errors"})
 keymap("n", "<leader>dq", "vim.diagnostic.setloclist", { desc = "Next Diagnostic Quick Fix"})
 
