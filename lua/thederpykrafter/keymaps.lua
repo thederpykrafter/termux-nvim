@@ -13,7 +13,7 @@ keymap("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy Package Manager" })
 keymap("n", "<leader>lu", "<cmd>Lazy update<cr>", { desc = "Lazy Update Packages" })
 
 -- lazygit
-keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 -- telescope
 keymap("n", "<leader><leader>", "<cmd>Telescope buffers<cr>", { desc = "Search Open Buffers" })
