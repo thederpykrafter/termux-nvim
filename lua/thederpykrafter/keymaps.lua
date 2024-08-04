@@ -9,8 +9,8 @@ keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Oil" })
 keymap("n", "<leader>c", "<cmd> Oil ~/.config/nvim<cr>", { desc = "NeoVim Config"})
 
 -- lazy package manager
-keymap("n", "<leader>ll", "<cmd>Lazygit<cr>", { desc = "Lazy Package Manager" })
-keymap("n", "<leader>lu", "<cmd>Lazygit update<cr>", { desc = "Lazy Update Packages" })
+keymap("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy Package Manager" })
+keymap("n", "<leader>lu", "<cmd>Lazy update<cr>", { desc = "Lazy Update Packages" })
 
 -- lazygit
 keymap("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
