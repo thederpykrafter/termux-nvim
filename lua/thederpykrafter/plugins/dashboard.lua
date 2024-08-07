@@ -72,7 +72,7 @@ return {
               key = 'c',
               key_format = ' %s', -- remove default surrounding `[]`
               --action = 'Telescope find_files cwd=~/.config/nvim',
-              action = 'Oil ~/.config/termux-nvim'
+              action = 'Oil ~/.config/nvim'
             },
             {
               icon = '󰩈  ',
