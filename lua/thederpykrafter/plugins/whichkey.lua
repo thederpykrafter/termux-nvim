@@ -3,12 +3,17 @@ return {
   event = "VimEnter",
   config = function()
     require("which-key").setup()
-    require("which-key").register {
+    require("which-key").add({
       -- Lazy Prefix
-      ["<leader>g"] = { name = "Git", _ = "which_key_ignore"},
-      ["<leader>l"] = { name = "Lazy", _ = "which_key_ignore"},
-      ["<leader>s"] = { name = "Search", _ = "which_key_ignore"},
-      ["<leader>d"] = { name = "Diagnostic", _ = "which_key_ignore"}
-    }
+      { "<leader>d", group = "Diagnostic" },
+      { "<leader>d_", hidden = true },
+      { "<leader>g", group = "Git" },
+      { "<leader>g_", hidden = true },
+      { "<leader>l", group = "Lazy" },
+      { "<leader>l_", hidden = true },
+      { "<leader>s", group = "Search" },
+      { "<leader>s_", hidden = true },
+    })
   end
 }
+
