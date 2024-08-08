@@ -75,6 +75,14 @@ return {
               action = 'Oil ~/.config/nvim'
             },
             {
+              icon = '  ',
+              desc = 'Windows NeoVim Config',
+              key = 'C',
+              key_format = ' %s', -- remove default surrounding `[]`
+              --action = 'Telescope find_files cwd=~/.config/nvim',
+              action = 'Oil ~/.config/termux-nvim'
+            },
+            {
               icon = '󰩈  ',
               desc = 'Quit NeoVim',
               key = 'q',
