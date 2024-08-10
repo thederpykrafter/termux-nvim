@@ -30,7 +30,7 @@ local options = {
 	signcolumn = "yes",
 	scrolloff = 10,
 	list = true,
-	listchars = { tab = "» ", trail = "·", nbsp = "␣" },
+	listchars = { tab = "│ ", trail = "·", nbsp = "␣" },
 	fillchars = { eob = " " },
 }
 
