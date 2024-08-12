@@ -64,6 +64,14 @@ return {
               key = 'n',
               key_format = ' %s', -- remove default surrounding `[]`
               -- action = "lua require'telescope.builtin'.find_files({})",
+              action = 'Oil ~/storage/shared/Documents/Notes',
+            },
+            {
+              icon = '  ',
+              desc = 'Windows Notes',
+              key = 'N',
+              key_format = ' %s', -- remove default surrounding `[]`
+              -- action = "lua require'telescope.builtin'.find_files({})",
               action = 'Oil ~/Documents/Notes',
             },
             {
