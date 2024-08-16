@@ -43,6 +43,10 @@ keymap('n', '<leader>sn', function()
   builtin.find_files { cwd = vim.fn.stdpath 'config' }
 end, { desc = 'Search Neovim files' })
 
+-- todo comments
+keymap("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "[S]earch [T]odo Telescope"})
+keymap("n", "<leader>sl", "<cmd>TodoLocList<cr>", { desc = "[S]earch [T]odo LocList"})
+
 -- clear highlight search
 keymap("n", "<esc>", "<cmd>nohlsearch<cr>")
 
