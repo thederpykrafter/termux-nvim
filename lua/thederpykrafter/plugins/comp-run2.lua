@@ -1,6 +1,6 @@
 return {
-	"thederpykrafter/new-plugin.nvim",
-	dir = "~/Dev/lua/new-plugin.nvim",
+	"thederpykrafter/comp-run2.nvim",
+	dir = "~/Dev/lua/comp-run2.nvim",
 	opts = {
 		keymaps = {
 			runDefault = "<leader>RR",
