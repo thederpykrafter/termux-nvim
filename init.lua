@@ -1,1 +1,1 @@
-require('thederpykrafter')
+require("thederpykrafter")
