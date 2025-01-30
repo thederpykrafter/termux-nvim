@@ -8,5 +8,6 @@ return {
 			["H"] = "actions.toggle_hidden",
 		},
 		watch_for_changes = true,
+		skip_confirm_for_simple_edits = true,
 	},
 }
