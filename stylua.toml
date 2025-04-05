@@ -1,8 +1,9 @@
+syntax = "Lua53"
 indent_type = "Tabs"
 indent_width = 2
 column_width = 66
 quote_style = "AutoPreferDouble"
-call_parentheses = "Always"
+call_parentheses = "Input"
 collapse_simple_statement = "Always"
 
 [sort_requires]
