@@ -30,6 +30,9 @@ return {
 			sh = { "beautysh" },
 		},
 		formatters = {
+      stylua = {
+        prepend_args = { "--config", "~/.config/nvim/stylua.toml"},
+      },
 			beautysh = {
 				prepend_args = { "-i", "2", "-s", "fnpar" },
 			},
