@@ -1,5 +1,4 @@
 return {
-  'tjdevries/coc-zsh',
-  config = function()
-  end,
+	"tjdevries/coc-zsh",
+	config = function() end,
 }

@@ -28,6 +28,7 @@ return {
 			zsh = { "beautysh" },
 			bash = { "beautysh" },
 			sh = { "beautysh" },
+			python = { "black" },
 		},
 		formatters = {
 			stylua = {
