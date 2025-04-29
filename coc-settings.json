@@ -10,15 +10,5 @@
         "bash"
       ]
     },
-    "zsh": {
-      "command": "zls",
-      "filetypes": [
-        "zsh"
-      ],
-      "rootPatterns": [
-        ".zshrc",
-        ".zprofile"
-      ]
-    }
   }
 }
