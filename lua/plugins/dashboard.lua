@@ -1,11 +1,11 @@
 local header = {
-	"                                               ",
-	"                                               ",
+	"                                 ",
+	"                                 ",
 	"┏┳┓┓┏┏┓┳┓┏┓┳┓┏┓┓┏┓┏┓┳┓┏┓┏┓┏┳┓┏┓┳┓",
 	" ┃ ┣┫┣ ┃┃┣ ┣┫┃┃┗┫┃┫ ┣┫┣┫┣  ┃ ┣ ┣┫",
 	" ┻ ┛┗┗┛┻┛┗┛┛┗┣┛┗┛┛┗┛┛┗┛┗┻  ┻ ┗┛┛┗",
-	"                                               ",
-	"                                               ",
+	"                                 ",
+	"                                 ",
 }
 
 return {
@@ -13,6 +13,12 @@ return {
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 		config = function()
+			vim.keymap.set(
+				"n",
+				"<leader>;",
+				"<cmd>Dashboard<CR>",
+				{ desc = "Dashboard" }
+			)
 			require("dashboard").setup({
 				theme = "doom",
 				config = {
@@ -60,7 +66,7 @@ return {
 						},
 						{
 							icon = "  ",
-							desc = "Notes",
+							desc = "Termux Notes",
 							key = "n",
 							key_format = " %s", -- remove default surrounding `[]`
 							-- action = "lua require'telescope.builtin'.find_files({})",
@@ -68,7 +74,7 @@ return {
 						},
 						{
 							icon = "  ",
-							desc = "Windows Notes",
+							desc = "Desktop Notes",
 							key = "N",
 							key_format = " %s", -- remove default surrounding `[]`
 							-- action = "lua require'telescope.builtin'.find_files({})",
@@ -84,11 +90,18 @@ return {
 						},
 						{
 							icon = "  ",
-							desc = "Windows NeoVim Config",
+							desc = "Termux NeoVim Config",
 							key = "C",
 							key_format = " %s", -- remove default surrounding `[]`
 							--action = 'Telescope find_files cwd=~/.config/nvim',
 							action = "Oil ~/.config/termux-nvim",
+						},
+						{
+							icon = "░  ",
+							desc = "Toggle Transparency",
+							key = "T",
+							key_format = " %s", -- remove default surrounding `[]`
+							action = "TransparentToggle",
 						},
 						{
 							icon = "󰩈  ",
@@ -96,6 +109,13 @@ return {
 							key = "q",
 							key_format = " %s",
 							action = "qa",
+						},
+						{
+							icon = "󰩈  ",
+							desc = "Close dashboard",
+							key = "Q",
+							key_format = " %s",
+							action = "b#",
 						},
 					},
 					footer = function()

@@ -1,7 +1,7 @@
 ;; NOTE In this file later patterns are assumed to have priority!
 
 ;; Punctuation
-["(" ")" "[" "]" "{" "}" "(<" ">)" "[<" ">]" "{|" "|}"] @punctuation.bracket
+["(" ")" "[" "]" "{" "}" "[<" ">]"] @punctuation.bracket
 [";" "," ":" "::"] @punctuation.delimiter
 
 ;; Constant
@@ -19,7 +19,7 @@
 (initializer_list (arg (param_path (param_path_element (ident) @variable.member))))
 ;; 2) Parameter
 (parameter name: (_) @variable.parameter)
-(call_invocation (arg (param_path (param_path_element [(ident) (ct_ident)] @variable.parameter))))
+(call_invocation (call_arg name: (_) @variable.parameter))
 (enum_param_declaration (ident) @variable.parameter)
 ;; 3) Declaration
 (global_declaration (ident) @variable.declaration)
@@ -30,7 +30,6 @@
 
 ;; Keyword (from `c3c --list-keywords`)
 [
-  "assert"
   "asm"
   "catch"
   "defer"
@@ -40,12 +39,9 @@
 
 [
   "$alignof"
-  "$and"
-  "$append"
   "$assert"
   "$assignable"
   "$case"
-  "$concat"
   "$default"
   "$defined"
   "$echo"
@@ -68,7 +64,6 @@
   "$is_const"
   "$nameof"
   "$offsetof"
-  "$or"
   "$qnameof"
   "$sizeof"
   "$stringify"
@@ -78,12 +73,12 @@
   "$vacount"
   "$vatype"
   "$vaconst"
-  "$varef"
   "$vaarg"
   "$vaexpr"
   "$vasplat"
-] @keyword.directive
+ ] @keyword.directive
 
+"assert" @keyword.debug
 "fn" @keyword.function
 "macro" @keyword.function
 "return" @keyword.return
@@ -91,13 +86,14 @@
 "module" @keyword.module
 
 [
+  "alias"
+  "attrdef"
   "bitstruct"
-  "def"
-  "distinct"
   "enum"
-  "fault"
+  "faultdef"
   "interface"
   "struct"
+  "typedef"
   "union"
 ] @keyword.type
 
@@ -169,8 +165,6 @@
   ">="
   "=>"
   "<="
-  ;; "{|"
-  ;; "(<"
   ;; "[<"
   "-="
   "--"
@@ -180,8 +174,6 @@
   "||"
   "+="
   "++"
-  ;; "|}"
-  ;; ">)"
   ;; ">]"
   "??"
   ;; "::"
@@ -190,6 +182,9 @@
   "..."
   "<<="
   ">>="
+  "&&&"
+  "+++"
+  "|||"
 ] @operator
 
 (range_expr ":" @operator)
@@ -230,13 +225,18 @@
                                           "associated"
                                           "elements"
                                           "extnameof"
+                                          "from_ordinal"
+                                          "get"
                                           "inf"
                                           "is_eq"
                                           "is_ordered"
                                           "is_substruct"
                                           "len"
+                                          "lookup"
+                                          "lookup_field"
                                           "max"
                                           "membersof"
+                                          "methodsof"
                                           "min"
                                           "nan"
                                           "inner"
@@ -244,10 +244,13 @@
                                           "names"
                                           "nameof"
                                           "params"
+                                          "paramsof"
                                           "parentof"
                                           "qnameof"
                                           "returns"
                                           "sizeof"
+                                          "tagof"
+                                          "has_tagof"
                                           "values"
                                           ;; Extra token
                                           "typeid")))
@@ -265,7 +268,7 @@
 
 ;; Attribute
 (attribute name: (_) @attribute)
-(define_attribute name: (_) @attribute)
+(attrdef_declaration name: (_) @attribute)
 (call_inline_attributes (at_ident) @attribute)
 (asm_block_stmt (at_ident) @attribute)
 
@@ -279,13 +282,12 @@
 ;; Function Definition
 (func_header name: (_) @function)
 (func_header method_type: (_) name: (_) @function.method)
-;; NOTE macro_declaration can also have a func_header
 (macro_header name: (_) @function)
 (macro_header method_type: (_) name: (_) @function.method)
 
 ;; Function Call
 (call_expr function: [(ident) (at_ident)] @function.call)
-(call_expr function: [(builtin)] @function.builtin.call)
+(call_expr function: (builtin) @function.builtin.call)
 (call_expr function: (module_ident_expr ident: (_) @function.call))
 (call_expr function: (trailing_generic_expr argument: (module_ident_expr ident: (_) @function.call)))
 (call_expr function: (field_expr field: (access_ident [(ident) (at_ident)] @function.method.call))) ; NOTE Ambiguous, could be calling a method or function pointer
@@ -320,4 +322,18 @@
   (block_comment)
 ] @comment @spell
 
-(doc_comment) @comment.documentation @spell
+(doc_comment) @comment.documentation
+(doc_comment_text) @spell
+(doc_comment_contract name: (_) @markup.strong
+                      (#any-of? @markup.strong
+                                "@param"
+                                "@return"
+                                "@deprecated"
+                                "@require"
+                                "@ensure"
+                                "@pure"))
+
+(doc_comment_contract name: (_) @markup.italic
+                      (#any-of? @markup.italic
+                                "@require"
+                                "@ensure"))
