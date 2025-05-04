@@ -41,7 +41,7 @@ return {
 				end,
 			},
 			beautysh = {
-				prepend_args = { "-i", "2", "-s", "fnpar" },
+				prepend_args = { "-t", "-s", "fnpar" },
 			},
 		},
 	},
