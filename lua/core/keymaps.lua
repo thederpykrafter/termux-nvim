@@ -1,13 +1,5 @@
 local keymap = vim.keymap.set
 
--- lazygit
-keymap(
-	"n",
-	"<leader>gg",
-	"<cmd>LazyGit<cr>",
-	{ desc = "LazyGit" }
-)
-
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Oil" })
 -- open config with Oil
