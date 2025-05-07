@@ -2,11 +2,9 @@ return {
 	"sphamba/smear-cursor.nvim",
 
 	opts = {
-		smear_between_buffers = true,
-		smear_between_neighbor_lines = true,
-		scroll_buffer_space = true,
+		cursor_color = "#d2d2d2",
 		legacy_computing_symbols_support = true,
-		smear_insert_mode = true,
+		hide_target_hack = true,
 		never_draw_over_target = true,
 	},
 }
