@@ -66,19 +66,19 @@ return {
 						},
 						{
 							icon = "  ",
-							desc = "Termux Notes",
+							desc = "Desktop Notes",
 							key = "n",
 							key_format = " %s", -- remove default surrounding `[]`
 							-- action = "lua require'telescope.builtin'.find_files({})",
-							action = "Oil ~/storage/shared/Documents/Notes",
+							action = "Oil ~/Documents/Notes",
 						},
 						{
 							icon = "  ",
-							desc = "Desktop Notes",
+							desc = "Termux Notes",
 							key = "N",
 							key_format = " %s", -- remove default surrounding `[]`
 							-- action = "lua require'telescope.builtin'.find_files({})",
-							action = "Oil ~/Documents/Notes",
+							action = "Oil ~/storage/shared/Documents/Notes",
 						},
 						{
 							icon = "  ",
