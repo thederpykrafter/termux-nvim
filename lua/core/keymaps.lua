@@ -100,5 +100,5 @@ keymap(
 keymap("n", "<A-j>", "<cmd>m+<cr>", { desc = "Move Line Down" })
 keymap("n", "<A-k>", "<cmd>m-2<cr>", { desc = "Move Line Up" })
 
-keymap("v", "<A-k>", "xkp", { desc = "Move Line Up" })
+keymap("v", "<A-k>", "xkkp", { desc = "Move Line Up" })
 keymap("v", "<A-j>", "xp", { desc = "Move Line Down" })
