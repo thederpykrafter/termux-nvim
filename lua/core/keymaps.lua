@@ -76,10 +76,25 @@ keymap(
 )
 
 -- resize wndows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", { desc = "Resize -2 UP" })
+keymap(
+	"n",
+	"<C-Down>",
+	":resize +2<CR>",
+	{ desc = "Resize +2 UP" }
+)
+keymap(
+	"n",
+	"<C-Left>",
+	":vertical resize -2<CR>",
+	{ desc = "Resize -2 LEFT" }
+)
+keymap(
+	"n",
+	"<C-Right>",
+	":vertical resize +2<CR>",
+	{ desc = "Resize +2 LEFT" }
+)
 
 -- move line of text
 keymap("n", "<A-j>", "<cmd>m+<cr>", { desc = "Move Line Down" })
