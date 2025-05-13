@@ -31,13 +31,13 @@ keymap("n", "<esc>", "<cmd>nohlsearch<cr>")
 keymap(
 	"n",
 	"<leader>de",
-	"vim.diagnostic.open_float",
+	vim.diagnostic.open_float,
 	{ desc = "Show Diagnostic Errors" }
 )
 keymap(
 	"n",
 	"<leader>dq",
-	"vim.diagnostic.setloclist",
+	vim.diagnostic.setloclist,
 	{ desc = "Next Diagnostic Quick Fix" }
 )
 
