@@ -51,7 +51,7 @@ for k, v in pairs(o) do
 end
 
 for k, v in pairs(opt) do
-  vim.o[k] = v
+  vim.opt[k] = v
 end
 
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
