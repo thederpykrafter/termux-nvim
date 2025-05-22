@@ -1,10 +1,8 @@
+column_width = 80
 line_endings = "Unix"
-syntax = "Lua53"
-indent_type = "Tabs"
+indent_type = "Spaces"
 indent_width = 2
-column_width = 66
-#column_width = 160
-quote_style = "AutoPreferDouble"
+quote_style = "AutoPreferSingle"
 call_parentheses = "Input"
 collapse_simple_statement = "Always"
 

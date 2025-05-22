@@ -31,15 +31,6 @@ return {
 			python = { "black" },
 		},
 		formatters = {
-			stylua = {
-				prepend_args = function()
-					local cmd_arg = "--config-path"
-					local path = os.getenv("HOME")
-						.. "/.config/nvim/stylua.toml"
-
-					return { cmd_arg, path }
-				end,
-			},
 			beautysh = {
 				prepend_args = { "-t", "-s", "fnpar" },
 			},
