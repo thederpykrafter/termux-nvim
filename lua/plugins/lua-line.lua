@@ -65,7 +65,14 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {},
+      extensions = {
+        'oil',
+        'fzf',
+        'lazy',
+        'quickfix',
+        'man',
+        --'mason'
+      },
     },
   },
 }
