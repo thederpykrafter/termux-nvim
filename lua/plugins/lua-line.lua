@@ -7,7 +7,9 @@ return {
         icons_enabled = true,
         theme = 'tokyodark',
         component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        -- component_separators = {},
+        -- section_separators = { left = '', right = '' },
+        section_separators = {},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -22,18 +24,41 @@ return {
         },
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'lsp_status' },
-        lualine_y = { 'fileformat', 'filetype' },
-        lualine_z = { 'location' },
+        lualine_c = { { 'filename', newfile_status = true, path = 3 } },
+        lualine_x = {
+          'fileformat',
+          'lsp_status',
+        },
+        lualine_y = {
+          { 'filetype', icon_only = true },
+        },
+        lualine_z = {
+          {
+            'location',
+            fmt = function()
+              local line = vim.fn.line('.')
+              local col = vim.fn.charcol('.')
+              return string.format('%1d:%-1d', line, col)
+            end,
+          },
+        },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = { { 'filename', newfile_status = true, path = 3 } },
+        lualine_x = {
+          {
+            'location',
+            fmt = function()
+              local line = vim.fn.line('.')
+              local col = vim.fn.charcol('.')
+              return string.format('%1d:%-1d', line, col)
+            end,
+          },
+        },
         lualine_y = {},
         lualine_z = {},
       },
