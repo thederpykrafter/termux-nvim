@@ -1,49 +1,21 @@
 return {
-  {
-    'uloco/bluloco.nvim',
-    lazy = false,
-    priority = 1000,
-    dependencies = { 'rktjmp/lush.nvim' },
-    config = function() vim.cmd 'colorscheme bluloco' end,
+  'tiagovla/tokyodark.nvim',
+  opts = {
+    transparent_background = false, -- set background to transparent
+    gamma = 1.00, -- adjust the brightness of the theme
+    styles = {
+      comments = { italic = true }, -- style for comments
+      keywords = { italic = true }, -- style for keywords
+      identifiers = { italic = true }, -- style for identifiers
+      functions = {}, -- style for functions
+      variables = {}, -- style for variables
+    },
+    custom_highlights = {} or function(highlights, palette) return {} end, -- extend highlights
+    custom_palette = {} or function(palette) return {} end, -- extend palette
+    terminal_colors = true, -- enable terminal colors
   },
-  {
-    'xiyaowong/transparent.nvim',
-    config = function()
-      require('transparent').clear_prefix 'NeoTree'
-      require('transparent').clear_prefix 'Telescope'
-      require('transparent').clear_prefix 'MiniStatusline'
-      require('transparent').setup {
-        groups = { -- table: default groups
-          'Normal',
-          'NormalNC',
-          'Comment',
-          'Constant',
-          'Special',
-          'Identifier',
-          'Statement',
-          'PreProc',
-          'Type',
-          'Underlined',
-          'Todo',
-          'String',
-          'Function',
-          'Conditional',
-          'Repeat',
-          'Operator',
-          'Structure',
-          'LineNr',
-          'NonText',
-          'SignColumn',
-          'CursorLine',
-          'CursorLineNr',
-          'StatusLine',
-          'StatusLineNC',
-          'EndOfBuffer',
-        },
-        extra_groups = {
-          'NormalFloat', -- plugins which have float panel such as Lazy, Mason, LspInfo
-        },
-      }
-    end,
-  },
+  config = function(_, opts)
+    require('tokyodark').setup(opts) -- calling setup is optional
+    vim.cmd [[colorscheme tokyodark]]
+  end,
 }
