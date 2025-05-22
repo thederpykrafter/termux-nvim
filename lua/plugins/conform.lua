@@ -1,6 +1,7 @@
 return {
   'stevearc/conform.nvim',
-  lazy = false,
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   keys = {
     {
       '<leader>f',
@@ -18,10 +19,14 @@ return {
     notify_on_error = true,
     format_on_save = function(bufnr)
       local disable_filetypes = { c = true, cpp = true }
-      return {
-        timeout_ms = 500,
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-      }
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        return nil
+      else
+        return {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
+        }
+      end
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
@@ -32,7 +37,7 @@ return {
     },
     formatters = {
       beautysh = {
-        prepend_args = { '-t', '-s', 'fnpar' },
+        prepend_args = { '-i', '2', '-s', 'fnpar' },
       },
     },
   },
