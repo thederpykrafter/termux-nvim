@@ -1,7 +1,11 @@
-local options = {
+local g = { -- vim.g._
+  mapleader = ' ',
+  maplocalleader = ' ',
+}
+
+local o = { -- vim.o._
   background = 'dark',
   wildmenu = true,
-  clipboard = 'unnamedplus',
   completeopt = 'noinsert,menuone,noselect',
   hlsearch = true,
   ignorecase = true,
@@ -15,7 +19,7 @@ local options = {
   inccommand = 'split',
   swapfile = false,
   termguicolors = true,
-  timeoutlen = 100,
+  timeoutlen = 300,
   undofile = true,
   updatetime = 250,
   expandtab = false,
@@ -30,19 +34,24 @@ local options = {
   signcolumn = 'yes',
   scrolloff = 10,
   list = true,
+  confirm = true,
+}
+
+local opt = { -- vim.opt._
   listchars = { tab = '│ ', trail = '·', nbsp = '␣' },
   fillchars = { eob = ' ' },
 }
 
-local globals = {
-  mapleader = ' ',
-  maplocalleader = ' ',
-}
-
-for k, v in pairs(globals) do
+for k, v in pairs(g) do
   vim.g[k] = v
 end
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
+for k, v in pairs(o) do
+  vim.o[k] = v
 end
+
+for k, v in pairs(opt) do
+  vim.o[k] = v
+end
+
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
