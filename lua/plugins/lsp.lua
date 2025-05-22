@@ -11,7 +11,16 @@ return {
       },
     },
     config = function()
-      require('lspconfig').lua_ls.setup {}
+      require('lspconfig').lua_ls.setup {
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
+            },
+            diagnostics = { disable = { 'missing-fields' } },
+          },
+        },
+      }
       require('lspconfig').bashls.setup {}
       require('lspconfig').gopls.setup {}
       require('lspconfig').zls.setup {}
