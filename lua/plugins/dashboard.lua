@@ -37,11 +37,11 @@ return {
               action = 'Telescope oldfiles',
             },
             {
-              icon = '󱈅  ',
-              desc = 'Find Files in Workspace',
+              icon = '  ',
+              desc = 'New Empty Buffer',
               key = 'f',
               key_format = ' %s', -- remove default surrounding `[]`
-              action = 'Telescope find_files',
+              action = 'enew',
             },
             {
               icon = '  ',
@@ -52,7 +52,7 @@ return {
             },
             {
               icon = '󱘢  ',
-              desc = 'Find Git Files in Workspace   ',
+              desc = 'Find Git Files in Workspace',
               key = 'g',
               key_format = ' %s', -- remove default surrounding `[]`
               action = 'Telescope git_files',
@@ -86,22 +86,15 @@ return {
               key = 'c',
               key_format = ' %s', -- remove default surrounding `[]`
               --action = 'Telescope find_files cwd=~/.config/nvim',
-              action = 'Oil ~/.config/nvim',
+              action = 'lua require("oil").open(vim.fn.stdpath("config"))',
             },
             {
               icon = '  ',
-              desc = 'Termux NeoVim Config',
+              desc = 'Desktop NeoVim Config',
               key = 'C',
               key_format = ' %s', -- remove default surrounding `[]`
               --action = 'Telescope find_files cwd=~/.config/nvim',
-              action = 'Oil ~/.config/termux-nvim',
-            },
-            {
-              icon = '░  ',
-              desc = 'Toggle Transparency',
-              key = 'T',
-              key_format = ' %s', -- remove default surrounding `[]`
-              action = 'TransparentToggle',
+              action = 'Oil ~/.config/nvim',
             },
             {
               icon = '󰩈  ',
