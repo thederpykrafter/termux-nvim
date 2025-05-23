@@ -22,5 +22,9 @@ return {
       ['gx'] = 'actions.open_external',
     },
     use_default_keymaps = false,
+    columns = {
+      'permissions',
+      'icon',
+    },
   },
 }
