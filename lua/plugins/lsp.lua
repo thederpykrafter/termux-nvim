@@ -26,7 +26,9 @@ return {
             },
           },
         },
-        bashls = {},
+        bashls = {
+          filetypes = { 'sh', 'bash', 'zsh' },
+        },
         gopls = {},
         zls = {},
         rust_analyzer = {},
