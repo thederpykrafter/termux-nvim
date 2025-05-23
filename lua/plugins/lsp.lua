@@ -12,7 +12,16 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'saghen/blink.cmp',
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
+          },
+        },
+      },
     },
     opts = {
       servers = {
